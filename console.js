@@ -6,10 +6,19 @@ function getComputerChoice(){
     return plays[ran];
 }
 
-function playGame(playerSelection){
+function playGame(){
     var computerChoice = getComputerChoice();
-    console.log(playerSelection);
-    console.log(computerChoice);
+    var playerSelection;
+
+    while(playerSelection!== "rock" && playerSelection!== "paper" && playerSelection !== "scissors"){
+        playerSelection = prompt("Rock, paper, or scissors?")
+        playerSelection = playerSelection.toLowerCase();
+        if(playerSelection!== "rock" && playerSelection!== "paper" && playerSelection !== "scissors"){
+            console.log("Must enter rock, scissors, or paper!!!");
+        }
+    }
+
+
     if(playerSelection === "rock"){
         if(computerChoice === "scissors"){
             return "You win! Rock beats scissors";
@@ -44,6 +53,10 @@ function playGame(playerSelection){
         }
     }   
 }
-
-var str = playGame("paper");
-console.log(str);
+function game(){
+    for(var i = 0; i < 5; i++){
+        console.log(playGame());
+    }
+}
+//var choice = document.getElementById("submit");
+game();
